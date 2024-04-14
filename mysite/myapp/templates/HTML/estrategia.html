@@ -14,19 +14,20 @@
 <!------------------------BARRA DE NAVEGACIÓN----------------------->
 <nav>
   <ul class="menu-horizontal">
-      <li>
-          <a href="#">Categor&iacuteas</a>
-          <ul class="menu-vertical">
-              <li><a href="{% static 'HTML/accion.html' %}">Accion</a></li>
-              <li><a href="{% static 'HTML/disparos.html' %}">Disparo</a></li>
-              <li><a href="{% static 'HTML/Rol.html' %}">Rol</a></li>
-              <li><a href="{% static 'HTML/estrategia.html' %}">Estrategia</a></li>
-              <li><a href="{% static 'HTML/deportes.html' %}">Deportes</a></li>
-          </ul>
-      </li>
+    <li>
+      <a href="#">Categor&iacuteas</a>
+      <ul class="menu-vertical">
+        <li><a href="{% url 'accion' %}">Accion</a></li>
+        <li><a href="{% url 'disparos' %}">Disparo</a></li>
+        <li><a href="{% url 'rol' %}">Rol</a></li>
+        <li><a href="{% url 'estrategia' %}">Estrategia</a></li>
+        <li><a href="{% url 'deportes' %}">Deportes</a></li>
+      </ul>
+    </li>
+    <li><a href="#" id="mostrarPopup">Registrarse</a></li>
+    <li class="nombre-tienda"><a href="{% url 'index' %}"><img src="{% static 'imagenes/LogoPixelGame.png' %}" height="60"></a></li>
+    
 
-      <li><a href="#" id="mostrarPopup">Registrarse</a></li>
-      <li class="nombre-tienda"><a href="{% static 'HTML/index.html' %}"><img src="{% static 'imagenes/LogoPixelGame.png' %}" height="60"></a></li>
   </ul>
 </nav>
 
