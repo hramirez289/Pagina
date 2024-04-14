@@ -1,0 +1,202 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'CSS/categorias.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/styles.css' %}">
+    <title>Juegos de Rol</title>
+</head>
+
+<body>
+    <!------------------------BARRA DE NAVEGACIÓN----------------------->
+    <nav>
+      <ul class="menu-horizontal">
+        <li>
+          <a href="#">Categor&iacuteas</a>
+          <ul class="menu-vertical">
+            <li><a href="{% static 'HTML/accion.html' %}">Accion</a></li>
+            <li><a href="{% static 'HTML/disparos.html' %}">Disparo</a></li>
+            <li><a href="{% static 'HTML/Rol.html' %}">Rol</a></li>
+            <li><a href="{% static 'HTML/estrategia.html' %}">Estrategia</a></li>
+            <li><a href="{% static 'HTML/deportes.html' %}">Deportes</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="#" id="mostrarPopup">Registrarse</a></li>
+        <li class="nombre-tienda"><a href="{% static 'HTML/index.html' %}"><img src="{% static 'imagenes/LogoPixelGame.png' %}" height="60"></a></li>
+      </ul>
+  </nav>
+<!--FORMULARIO REGISTRO-->
+<div class="popup" id="popup">
+  <div class="popup-contenido">
+      <span class="cerrar" style="color:aliceblue" onclick="cerrarPopup()">&times;</span>
+      <form id="registroForm">
+        <div class="mb-3">
+          <label for="NombreCompleto" class="form-label" style="color:aliceblue">Nombre Completo</label>
+          <input type="text" class="form-control" id="NombreCompleto" placeholder="Ej: Juan P&eacute;rez" autofocus required>
+        </div>
+        <div class="mb-3">
+          <label for="NombreUsuario" class="form-label" style="color:aliceblue">Crear nombre de usuario</label>
+          <input type="text" class="form-control" id="NombreUsuario" placeholder="Ej: Juan.Perez" required>
+        </div>
+        <div class="mb-3">
+          <label for="CorreoElectronico" class="form-label" style="color:aliceblue">Correo electrónico</label>
+          <input type="email" class="form-control" id="CorreoElectronico" placeholder="Ej: Juanperez@gmail.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="ClaveAcceso" class="form-label" style="color:aliceblue">Crea una clave para acceso</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="ClaveAcceso" placeholder="*********" required>
+            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('ClaveAcceso')">Mostrar</button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="RepiteClave" class="form-label" style="color:aliceblue">Repite la clave por favor</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="RepiteClave" placeholder="*********" required>
+            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('RepiteClave')">Mostrar</button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="FechaNacimiento" class="form-label" style="color:aliceblue">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="FechaNacimiento" required>
+        </div>
+        <div class="mb-3">
+          <label for="DireccionDespacho" class="form-label" style="color:aliceblue">Dirección de despacho (opcional)</label>
+          <input type="text" class="form-control" id="DireccionDespacho" placeholder="Ingrese dirección de despacho">
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-secondary">Guardar</button>
+          <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+        </div>
+      </form>
+  </div>
+</div>
+<!--CONTENIDO-->
+<div class="contenedor-padre-juegos">
+  <div class="contenedor-juegos">
+      <img src="{% static 'imagenes/imageneldenring.jpg' %}" alt="Elden Ring">
+      <p class="precio">Elden Ring<br>$49.990<p>
+      <p class="descripcion">Recorre las Tierras Intermedias, un nuevo mundo de fantas&iacute;a ideado por Hidetaka Miyazaki, creador de la exitosa serie de videojuegos DARK SOULS, y por George R. R. Martin, autor de Canci&oacute;n de hielo y fuego, la serie de fantas&iacute;a superventas seg&uacute;n The New York Times. Desvela los misterios del poder del C&iacute;rculo de Elden. Enfr&eacute;ntate a criaturas temibles y conoce a adversarios con pasados tumultuosos y personajes con sus propias motivaciones para ayudarte a avanzar o complicarte las cosas. </p>
+  </div>
+  <div class="contenedor-juegos">
+      <img src="{% static 'imagenes/imagengenshin.jpg' %}" alt="Genshin Impact">
+      <p class="precio">Genshin Impact<br>$9.990</p>
+      <p class="descripcion">Genshin Impact es un videojuego de rol de acción de mundo abierto y gratuito, con una mec&aacute;nica de monetizaci&oacute;n de gacha para conseguir elementos adicionales como personajes especiales y armas.</p>
+  </div>
+</div>
+
+<!---------------------------------FOOTER----------------------------------------------------------->
+<h2 style="text-align:center; color:aliceblue; margin-bottom: 40px;"> 
+  <h1></h1>
+<footer class="footer" >
+<div class="container col-sm-12 col-md-8 col-lg-8 col-xl-8 ">
+  <div class="footer-row">
+      <div class="footer-links">
+          <h4>Compañia</h4>
+          <ul>
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="#">Nuestros Servicios</a></li>
+              <li><a href="#">Politica De privacidad</a></li>
+              <li><a href="#">Registrate</a></li>
+          </ul>
+      </div>
+      <div class="footer-links">
+          <h4>Ayuda</h4>
+          <ul>
+              <li><a href="#">Preguntas</a></li>
+              <li><a href="#">Compras</a></li>
+              <li><a href="#">Envios</a></li>
+              <li><a href="#">Estatus De orden</a></li>
+          </ul>
+      </div>
+      <div class="footer-links">
+          <h4>Informacion</h4>
+          <ul>
+              <li><a href="#">Tienda</a></li>
+              <li><a href="#">Proximamente</a></li>
+              <li><a href="#">estrenos</a></li>
+              <li><a href="#">Ofertas</a></li>
+          </ul>
+           
+      </div>
+  </div>
+</div>
+</footer>
+<!--SCRIPT-->
+<script>
+  var popup = document.getElementById("popup");
+  
+  document.getElementById("mostrarPopup").addEventListener("click", function() {
+      popup.style.display = "flex";
+  });
+  
+  
+  function cerrarPopup() {
+      popup.style.display = "none";
+  }
+  function togglePassword(inputId) {
+            var input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+            } else {
+                input.type = "password";
+            }
+        }
+  
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            var nombreCompleto = document.getElementById('NombreCompleto').value.trim();
+            var nombreUsuario = document.getElementById('NombreUsuario').value.trim();
+            var correoElectronico = document.getElementById('CorreoElectronico').value.trim();
+            var claveAcceso = document.getElementById('ClaveAcceso').value.trim();
+            var repiteClave = document.getElementById('RepiteClave').value.trim();
+            var fechaNacimiento = document.getElementById('FechaNacimiento').value.trim();
+            var direccionDespacho = document.getElementById('DireccionDespacho').value.trim();
+  
+            if (!nombreCompleto || !nombreUsuario || !correoElectronico || !claveAcceso || !repiteClave || !fechaNacimiento) {
+                alert('Por favor, complete todos los campos.');
+                event.preventDefault();
+                return;
+            }
+  
+            
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(correoElectronico)) {
+                alert('Por favor, ingrese un correo electrónico válido.');
+                event.preventDefault();
+                return;
+            }
+  
+            var passwordRegex = /^(?=.*\d)(?=.*[A-Z]).{6,18}$/;
+            if (!passwordRegex.test(claveAcceso)) {
+                alert('La contraseña debe tener al menos un número y una letra en mayúscula, y tener entre 6 y 18 caracteres.');
+                event.preventDefault();
+                return;
+            }
+            
+            if (claveAcceso !== repiteClave) {
+                alert('Las contraseñas no coinciden.');
+                event.preventDefault();
+                return;
+            }
+  
+            var hoy = new Date();
+            var fechaNacimientoDate = new Date(fechaNacimiento);
+            var edad = hoy.getFullYear() - fechaNacimientoDate.getFullYear();
+            var mes = hoy.getMonth() - fechaNacimientoDate.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimientoDate.getDate())) {
+                edad--;
+            }
+            if (edad < 13) {
+                alert('Debe tener al menos 13 años para registrarse en el sitio web.');
+                event.preventDefault();
+                return;
+            }
+  
+        });
+</script>
+</body> 
+</html>
