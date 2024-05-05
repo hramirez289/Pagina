@@ -1,7 +1,5 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,23 +33,24 @@
 <div class="popup" id="popup">
     <div class="popup-contenido">
         <span class="cerrar" style="color:aliceblue" onclick="cerrarPopup()">&times;</span>
-        <form id="registroForm">
+
+        <form id="registroForm" action="crearUsuario" method="POST"> {% csrf_token %}
           <div class="mb-3">
             <label for="NombreCompleto" class="form-label" style="color:aliceblue">Nombre Completo</label>
-            <input type="text" class="form-control" id="NombreCompleto" placeholder="Ej: Juan P&eacute;rez" autofocus required>
+            <input type="text" name="nombre" class="form-control" id="NombreCompleto" placeholder="Ej: Juan P&eacute;rez" autofocus required>
           </div>
           <div class="mb-3">
             <label for="NombreUsuario" class="form-label" style="color:aliceblue">Crear nombre de usuario</label>
-            <input type="text" class="form-control" id="NombreUsuario" placeholder="Ej: Juan.Perez" required>
+            <input type="text" name="usuario" class="form-control" id="NombreUsuario" placeholder="Ej: Juan.Perez" required>
           </div>
           <div class="mb-3">
             <label for="CorreoElectronico" class="form-label" style="color:aliceblue">Correo electrónico</label>
-            <input type="email" class="form-control" id="CorreoElectronico" placeholder="Ej: Juanperez@gmail.com" required>
+            <input type="email" name="mail" class="form-control" id="CorreoElectronico" placeholder="Ej: Juanperez@gmail.com" required>
           </div>
           <div class="mb-3">
             <label for="ClaveAcceso" class="form-label" style="color:aliceblue">Crea una clave para acceso</label>
             <div class="input-group">
-              <input type="password" class="form-control" id="ClaveAcceso" placeholder="*********" required>
+              <input type="password" name="clave" class="form-control" id="ClaveAcceso" placeholder="*********" required>
               <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('ClaveAcceso')">Mostrar</button>
             </div>
           </div>
@@ -63,12 +62,12 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="FechaNacimiento" class="form-label" style="color:aliceblue">Fecha de nacimiento</label>
-            <input type="date" class="form-control" id="FechaNacimiento" required>
+            <label for="FechaNacimiento"  class="form-label" style="color:aliceblue">Fecha de nacimiento</label>
+            <input type="date" name="fechanac" class="form-control" id="FechaNacimiento" required>
           </div>
           <div class="mb-3">
             <label for="DireccionDespacho" class="form-label" style="color:aliceblue">Dirección de despacho (opcional)</label>
-            <input type="text" class="form-control" id="DireccionDespacho" placeholder="Ingrese dirección de despacho">
+            <input type="text" name="dirdesp" class="form-control" id="DireccionDespacho" placeholder="Ingrese dirección de despacho">
           </div>
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-secondary">Guardar</button>
